@@ -1,0 +1,211 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-07-02T12:08:00.144Z",
+	"__export_source": "insomnia.desktop.app:v5.16.6",
+	"resources": [
+		{
+			"_id": "wrk_342d2bfa396f4a8abfe340f8f206703e",
+			"created": 1530519511194,
+			"description": "Kody błędów:  \n**1** - błędne dane  \n**2** - błędne id  \n**3** - błędny token ",
+			"modified": 1530533264224,
+			"name": "Rekrutacja",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_0a3f90b295fa4fadb67299a6a3b1056f",
+			"color": null,
+			"created": 1530519511295,
+			"data": {
+				"api_url": "http://rekrutacja.backendzs.pl",
+				"auth_header_name": "X-AUTH-HEADER",
+				"auth_header_value": "fb2f56fde81f21926fc0b5b74702f71da9f152efa7b5587a308984b71c9acac7fd44da05583ab06d57d29794f59fc475d9f2d132cbc6e29c421f11330a30a613"
+			},
+			"isPrivate": false,
+			"modified": 1530533196821,
+			"name": "New Environment",
+			"parentId": "wrk_342d2bfa396f4a8abfe340f8f206703e",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_f535017b0bf549f1a16ba08cc99f9a05",
+			"cookies": [],
+			"created": 1530519511299,
+			"modified": 1530519511299,
+			"name": "Default Jar",
+			"parentId": "wrk_342d2bfa396f4a8abfe340f8f206703e",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_4bdd037515f449e997c06eb56a6b8d9a",
+			"authentication": {},
+			"body": {},
+			"created": 1530519537046,
+			"description": "Adres: {{ api_url  }}/note/   \nMetoda: **GET**\n\nParametry:  \n**?max_version :integer** - najwyższa wersja z poprzedniego zapytania(opcjonalne)  \n\nPrzykładowa odpowiedź:\n```json\n[\n\t{\n\t\t\"note_id\": 3,\n\t\t\"title\": \"title\",\n\t\t\"content\": \"content\",\n\t\t\"version\": 3,\n\t\t\"created\": 1530469102,\n\t\t\"modified\": 1530469102\n\t},\n\t{\n\t\t\"note_id\": 2,\n\t\t\"title\": \"title\",\n\t\t\"content\": \"content\",\n\t\t\"version\": 2,\n\t\t\"created\": 1530468369,\n\t\t\"modified\": 1530468369\n\t}\n]\n```",
+			"headers": [
+				{
+					"id": "pair_7d70d09711194641bff4e80f9a5bcb77",
+					"name": "{{ auth_header_name  }}",
+					"value": "{{ auth_header_value  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1530519537046,
+			"method": "GET",
+			"modified": 1530533204070,
+			"name": "Pobieranie notatek",
+			"parameters": [
+				{
+					"disabled": true,
+					"id": "pair_834661bfcf834a47b2b7cb1e1045b118",
+					"name": "max_version",
+					"value": "2"
+				}
+			],
+			"parentId": "wrk_342d2bfa396f4a8abfe340f8f206703e",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ api_url  }}/note/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_f57b602cf41b43b58213567ca29555db",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"title\" : \"Tytuł\",\n\t\"content\":\"Treść\"\n}"
+			},
+			"created": 1530519580327,
+			"description": "Adres: {{ api_url  }}/note/   \nMetoda: **POST**\n\nParametry:  \n**title :string** - tytuł(obowiązkowy)  \n**content :string** - treść(obowiązkowy)  \n\nPrzykładowa odpowiedź:\n```json\n{\n\t\"note_id\": 4,\n\t\"title\": \"Tytuł\",\n\t\"content\": \"Treść\",\n\t\"version\": 5,\n\t\"created\": 1530519622,\n\t\"modified\": 1530519622\n}\n```",
+			"headers": [
+				{
+					"id": "pair_cb6202b20eaa48a7aa67cd54e59179f4",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_b3879d3b20de46d2b4bdf28dbef941a7",
+					"name": "{{ auth_header_name  }}",
+					"value": "{{ auth_header_value  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1530519580327,
+			"method": "POST",
+			"modified": 1530533219022,
+			"name": "Tworzenie notatki",
+			"parameters": [],
+			"parentId": "wrk_342d2bfa396f4a8abfe340f8f206703e",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ api_url  }}/note/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_eb044a087a2a4c9ea2847015d09dce2f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"title\": \"Nowy tytuł\",\n\t\"content\" : \"Nowa treść\"\n}"
+			},
+			"created": 1530519637704,
+			"description": "Adres: {{ api_url  }}/note/{id}   \nMetoda: **PUT**\n\nParametry:  \n**{id} :integer** - id notatki  \n**title :string** - tytuł(obowiązkowy)  \n**content :string** - treść(obowiązkowy)  \n\nPrzykładowa odpowiedź:\n```json\n{\n\t\"note_id\": 4,\n\t\"title\": \"Tytuł\",\n\t\"content\": \"Treść\",\n\t\"version\": 5,\n\t\"created\": 1530519622,\n\t\"modified\": 1530519622\n}\n```",
+			"headers": [
+				{
+					"id": "pair_ad1a6a13640d4870a8b5730e563c1b2b",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_149d7fb921a842e4b68aa5def9f5d8c3",
+					"name": "{{ auth_header_name  }}",
+					"value": "{{ auth_header_value  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1530519637704,
+			"method": "PUT",
+			"modified": 1530533242266,
+			"name": "Edycja notatki",
+			"parameters": [],
+			"parentId": "wrk_342d2bfa396f4a8abfe340f8f206703e",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ api_url  }}/note/4",
+			"_type": "request"
+		},
+		{
+			"_id": "req_47a616445f774adf92603e4c8a3b0f3e",
+			"authentication": {},
+			"body": {},
+			"created": 1530519731637,
+			"description": "Adres: {{ api_url  }}/note/{id}   \nMetoda: **DELETE**\n\nParametry:  \n**{id} :integer** - id notatki(obowiązkowe)\n\nPrzykładowa odpowiedź:\n```json\n{}\n```",
+			"headers": [
+				{
+					"id": "pair_0a10c60fff7e42779d677ca4d988f35d",
+					"name": "{{ auth_header_name  }}",
+					"value": "{{ auth_header_value  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1530519609015.5,
+			"method": "DELETE",
+			"modified": 1530533234016,
+			"name": "Usunięcie notatki",
+			"parameters": [],
+			"parentId": "wrk_342d2bfa396f4a8abfe340f8f206703e",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ api_url  }}/note/4",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ea9fae4fbf1849758df82034f4a72bda",
+			"authentication": {},
+			"body": {},
+			"created": 1530519746886,
+			"description": "Adres: {{ api_url  }}/deleted-note/   \nMetoda: **GET**\n\nParametry:  \n**?max_version :integer** - najwyższa wersja z poprzedniego zapytania(opcjonalne)  \n\nPrzykładowa odpowiedź:\n```json\n[\n\t{\n\t\t\"note_id\": 4,\n\t\t\"version\": 2,\n\t\t\"created\": 1530519742\n\t},\n\t{\n\t\t\"note_id\": 1,\n\t\t\"version\": 1,\n\t\t\"created\": 1530469525\n\t}\n]\n```",
+			"headers": [
+				{
+					"id": "pair_a24cd6d86b614826931a0c1265cb9dc5",
+					"name": "{{ auth_header_name  }}",
+					"value": "{{ auth_header_value  }}"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1530069813656.25,
+			"method": "GET",
+			"modified": 1530533212632,
+			"name": "Pobieranie id usuniętych notatek",
+			"parameters": [
+				{
+					"disabled": true,
+					"id": "pair_834661bfcf834a47b2b7cb1e1045b118",
+					"name": "max_version",
+					"value": "1"
+				}
+			],
+			"parentId": "wrk_342d2bfa396f4a8abfe340f8f206703e",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ api_url  }}/deleted-note/",
+			"_type": "request"
+		}
+	]
+}
